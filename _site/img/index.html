@@ -1,0 +1,64 @@
+<p>After reading this article: https://www.audubon.org/feature/aerial-odysseys-bird-migration-americas and seeing opportunities to contribute towards conservation I have decided to learn ArcGIS</p>
+
+<p>and what better to do that than to map my five favourate local birds!</p>
+
+<p>So looking for data online I came across nbnatlas.org which is a wonderful resource!</p>
+
+<p>now the hardest part of it all is to select my top 5 birds to show (in no particular order):</p>
+
+<p>Osprey
+Peregrine Falcon
+Puffin
+Pied Wagtail
+Raven</p>
+
+<p>~~~ INSERT NBNATLAS SCREENSHOT 4 ~~~</p>
+
+<p>this gave us a nice csv file of all the occurences in 2022.</p>
+
+<p>Using ArcMap 10.7.1</p>
+
+<p>Now I created a map and chose the sattelite imagery without road markings, as birds do not follow them neither shall we</p>
+
+<p>~~~ INSERT IMAGE 2 ~~~</p>
+
+<p>this was then cropped to show only the relevant land masses</p>
+
+<p>~~~ INSERT IMAGE 3 ~~~~</p>
+
+<p>the data taken from nbnatlas was then imported into ArcMap, for the x and y coordinates to be plotted correctly thier coordinate system was set to <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS1984</a></p>
+
+<p>to provide clear analysis the symbol colour of each record is determined by the Species ID (designated by nbnatlas) and then Common name later.</p>
+
+<p>~~~ INSERT IMAGE 5 ~~~~</p>
+
+<p>ArcMap contains an amazing feature called HTMLPopup which displays the data point in a table for the user to read. After selecting the relevent fields this is how it looked:</p>
+
+<p>~~~ INSERT IMAGE 6 ~~~~</p>
+
+<p>For the map user to have access to the data provider and dataset from nbnatlas the HTMLPopup can be edited using xslt to provide links to them (REWORD)</p>
+
+<p>following is a code snippet which was inserted toward the end of the default xsl file (line 145)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;xsl:when test="FieldName[starts-with(.,'Dataset ID')] or FieldName[starts-with(.,'Data Provider ID')]"&gt;
+	&lt;a target="_blank"&gt;	
+		&lt;xsl:attribute name="href"&gt;
+			https://registry.nbnatlas.org/public/show/&lt;xsl:value-of select="FieldValue"/&gt;
+		&lt;/xsl:attribute&gt;
+		&lt;xsl:value-of select="FieldValue"/&gt;
+	&lt;/a&gt;
+&lt;/xsl:when&gt;
+</code></pre></div></div>
+
+<p>Say the dataset ID is: ‘dr478’ the code above converts this to a <a href="https://registry.nbnatlas.org/public/show/dr478">link</a> for the RSPB Annual Reserve Avian Monitoring on the nbnatlas website. This also functions the same for data providers, such as the RSPB.</p>
+
+<p>Here we can see this visualised in a HTMLPopup</p>
+
+<p>~~~ INSERT IMAGE 7 ~~~</p>
+
+<p>To enhance the data displayed the xsl code was further modified to retrieve beautiful images of birds kindly provided by the <a href="https://rspb.org.uk">RSPB</a>. Originally I had planned to attach the image files to the document, but thought that having an agile approach was more fitting to the modern web. The xls file has been included in this repo on github.</p>
+
+<p>~~~ INSERT IMAGE 8 ~~~</p>
+
+<p>Each data point contains a field named “Coordinate Uncertainty” which is measured in meters. The radius of symbol of each data point can be made to s</p>
+
