@@ -64,7 +64,7 @@ Here we can see this visualised in a HTMLPopup
 
 ![HTMLPopup example with link to source](/assets/images/arcgis-adventures/6-link-to-source.PNG)
 
-To enhance the data displayed the xsl code was further modified to retrieve beautiful images of birds kindly provided by the [RSPB](https://rspb.org.uk). Originally I had planned to attach the image files to the document, but thought that having an agile approach was more fitting to the modern web. The xls file has been included [here.](/assets/files/html-pop-up.xslt)
+To enhance the data displayed the xsl code was further modified to retrieve beautiful images of birds kindly provided by the [RSPB](https://rspb.org.uk). Originally I had planned to attach the image files to the document, but thought that having an agile approach was more fitting to the modern web. The xls file has been included [here.](https://github.com/blubeam/blubeam.github.io/blob/main/assets/files/html-pop-up.xlst)
 
 ![HTMLPopup with embedded image](/assets/images/arcgis-adventures/7-embedded-image.PNG)
 
