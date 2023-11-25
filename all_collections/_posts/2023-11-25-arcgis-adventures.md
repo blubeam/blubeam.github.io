@@ -5,7 +5,7 @@ date: 2023-11-25
 thumbnail: "assets/images/arcgis-adventures/thumb.jpg"
 ---
 
-After reading this article: https://www.audubon.org/feature/aerial-odysseys-bird-migration-americas and seeing opportunities to contribute towards conservation I have decided to learn ArcGIS
+After reading this [article](https://www.audubon.org/feature/aerial-odysseys-bird-migration-americas) and seeing opportunities to contribute towards conservation I have decided to learn ArcGIS
 
 and what better to do that than to map my five favourite local birds!
 
@@ -13,11 +13,11 @@ So looking for data online I came across nbnatlas.org which is a wonderful resou
 
 now the hardest part of it all is to select my top 5 birds to show (in no particular order):
 
-Osprey
-Peregrine Falcon
-Puffin
-Pied Wagtail
-Raven
+* Osprey
+* Peregrine Falcon
+* Puffin
+* Pied Wagtail
+* Raven
 
 ![screenshot of nbnatlas.org website](/assets/images/arcgis-adventures/1-downloading-data.PNG)
 
@@ -64,7 +64,7 @@ Here we can see this visualised in a HTMLPopup
 
 ![HTMLPopup example with link to source](/assets/images/arcgis-adventures/6-link-to-source.PNG)
 
-To enhance the data displayed the xsl code was further modified to retrieve beautiful images of birds kindly provided by the [RSPB](https://rspb.org.uk). Originally I had planned to attach the image files to the document, but thought that having an agile approach was more fitting to the modern web. The xls file has been included in this repo on GitHub.
+To enhance the data displayed the xsl code was further modified to retrieve beautiful images of birds kindly provided by the [RSPB](https://rspb.org.uk). Originally I had planned to attach the image files to the document, but thought that having an agile approach was more fitting to the modern web. The xls file has been included [here.](/assets/files/html-pop-up.xslt)
 
 ![HTMLPopup with embedded image](/assets/images/arcgis-adventures/7-embedded-image.PNG)
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-25T17:46:49+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Birdy Blog</title><subtitle>Some bird talking about tech.</subtitle><author><name>Bella</name></author><entry><title type="html">ArcGIS Adventures</title><link href="http://localhost:4000/posts/arcgis-adventures/" rel="alternate" type="text/html" title="ArcGIS Adventures" /><published>2023-11-25T00:00:00+00:00</published><updated>2023-11-25T00:00:00+00:00</updated><id>http://localhost:4000/posts/arcgis-adventures</id><content type="html" xml:base="http://localhost:4000/posts/arcgis-adventures/">&lt;p&gt;After reading this article: https://www.audubon.org/feature/aerial-odysseys-bird-migration-americas and seeing opportunities to contribute towards conservation I have decided to learn ArcGIS&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-25T19:44:54+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Birdy Blog</title><subtitle>Some bird talking about tech.</subtitle><author><name>Bella</name></author><entry><title type="html">ArcGIS Adventures</title><link href="http://localhost:4000/posts/arcgis-adventures/" rel="alternate" type="text/html" title="ArcGIS Adventures" /><published>2023-11-25T00:00:00+00:00</published><updated>2023-11-25T00:00:00+00:00</updated><id>http://localhost:4000/posts/arcgis-adventures</id><content type="html" xml:base="http://localhost:4000/posts/arcgis-adventures/">&lt;p&gt;After reading this &lt;a href=&quot;https://www.audubon.org/feature/aerial-odysseys-bird-migration-americas&quot;&gt;article&lt;/a&gt; and seeing opportunities to contribute towards conservation I have decided to learn ArcGIS&lt;/p&gt;
 
 &lt;p&gt;and what better to do that than to map my five favourite local birds!&lt;/p&gt;
 
@@ -6,11 +6,13 @@
 
 &lt;p&gt;now the hardest part of it all is to select my top 5 birds to show (in no particular order):&lt;/p&gt;
 
-&lt;p&gt;Osprey
-Peregrine Falcon
-Puffin
-Pied Wagtail
-Raven&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Osprey&lt;/li&gt;
+  &lt;li&gt;Peregrine Falcon&lt;/li&gt;
+  &lt;li&gt;Puffin&lt;/li&gt;
+  &lt;li&gt;Pied Wagtail&lt;/li&gt;
+  &lt;li&gt;Raven&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/1-downloading-data.PNG&quot; alt=&quot;screenshot of nbnatlas.org website&quot; /&gt;&lt;/p&gt;
 
@@ -56,7 +58,7 @@ Raven&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/6-link-to-source.PNG&quot; alt=&quot;HTMLPopup example with link to source&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;To enhance the data displayed the xsl code was further modified to retrieve beautiful images of birds kindly provided by the &lt;a href=&quot;https://rspb.org.uk&quot;&gt;RSPB&lt;/a&gt;. Originally I had planned to attach the image files to the document, but thought that having an agile approach was more fitting to the modern web. The xls file has been included in this repo on GitHub.&lt;/p&gt;
+&lt;p&gt;To enhance the data displayed the xsl code was further modified to retrieve beautiful images of birds kindly provided by the &lt;a href=&quot;https://rspb.org.uk&quot;&gt;RSPB&lt;/a&gt;. Originally I had planned to attach the image files to the document, but thought that having an agile approach was more fitting to the modern web. The xls file has been included &lt;a href=&quot;/assets/files/html-pop-up.xslt&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/7-embedded-image.PNG&quot; alt=&quot;HTMLPopup with embedded image&quot; /&gt;&lt;/p&gt;
 
@@ -68,4 +70,4 @@ Raven&lt;/p&gt;
 
 &lt;p&gt;The next set of data with time stamps I would like to map summer/autumn migrations over many years.&lt;/p&gt;
 
-&lt;p&gt;I expected that python scripting would be necessary to complete most of what I was looking to do, this was not true as the xls engine is very powerful.&lt;/p&gt;</content><author><name>Bella</name></author><summary type="html">After reading this article: https://www.audubon.org/feature/aerial-odysseys-bird-migration-americas and seeing opportunities to contribute towards conservation I have decided to learn ArcGIS</summary></entry></feed>
+&lt;p&gt;I expected that python scripting would be necessary to complete most of what I was looking to do, this was not true as the xls engine is very powerful.&lt;/p&gt;</content><author><name>Bella</name></author><summary type="html">After reading this article and seeing opportunities to contribute towards conservation I have decided to learn ArcGIS</summary></entry></feed>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+	<xsl:variable name="ignoreFieldNames" select="'|OBJECTID|Shape|Shape_Length|Shape_Area|ATTACHMENTID|REL_OBJECTID|CONTENT_TYPE|ATT_NAME|DATA_SIZE|DATA|'"/>
+	<xsl:variable name="headerRowColor" select="'#9CBCE2'"/>
+	<xsl:variable name="alternateRowColor" select="'#D4E4F3'"/>
+	<xsl:template match="/">
+		<html>
+			<head>
+				<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+			</head>
+			<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+				<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+										
+					<tr style="text-align:center;">
+						<td>
+							<xsl:apply-templates select="FieldsDoc"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+								<xsl:choose>
+									<xsl:when test="FieldsDoc/Fields/Field/FieldName">
+										<xsl:apply-templates select="FieldsDoc/Fields/Field/FieldName[not(contains($ignoreFieldNames, concat(concat('|', text()), '|')))]/.." />
+									</xsl:when>
+									<xsl:otherwise>
+										<xsl:apply-templates select="FieldsDoc/Fields/Field" />
+									</xsl:otherwise>
+								</xsl:choose>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</body>
+		</html>
+	</xsl:template>
+
+	<xsl:template match="FieldsDoc">
+		<xsl:choose>
+			<xsl:when test="Title[starts-with(.,'Peregrine')]">
+				<a target="_blank" href="https://www.rspb.org.uk/birds-and-wildlife/peregrine-falcon">
+					<img border="0" width="300px" src="https://base-prod.rspb-prod.magnolia-platform.com/dam/jcr:f4408c89-1903-4595-af30-02c403e33488/1113051122-Species-Peregrine-Falcon-flying-to-camera.jpg" />
+				</a>
+			</xsl:when>
+			<xsl:when test="Title[starts-with(.,'Raven')]">
+				<a target="_blank" href="https://www.rspb.org.uk/birds-and-wildlife/raven">
+					<img border="0" width="300px" src="https://base-prod.rspb-prod.magnolia-platform.com/dam/jcr:e1c27e59-faa7-4417-95a2-d4eed62608d5/628026569-Species-Raven-on-ground_1.jpg" />
+				</a>
+			</xsl:when>
+			<xsl:when test="Title[starts-with(.,'Pied Wagtail')]">
+				<a target="_blank" href="https://www.rspb.org.uk/birds-and-wildlife/pied-wagtail">
+					<img border="0" width="300px" src="https://base-prod.rspb-prod.magnolia-platform.com/dam/jcr:63d477b1-ee7b-4d8d-8973-73a854014e02/2178408657-Species-Pied-Wagtail-in-moss.jpg" />
+				</a>
+			</xsl:when>
+			<xsl:when test="Title[starts-with(.,'Puffin')]">
+				<a target="_blank" href="https://www.rspb.org.uk/birds-and-wildlife/puffin">
+					<img border="0" width="300px" src="https://base-prod.rspb-prod.magnolia-platform.com/dam/jcr:aa397b38-b1b3-4508-b880-3dea711297bf/2029716314-Species-Puffin-group-stood-on-rock-in-early-light.jpg"/>
+				</a>
+			</xsl:when>
+			<xsl:when test="Title[starts-with(.,'Osprey')]">
+				<a target="_blank" href="https://www.rspb.org.uk/birds-and-wildlife/osprey">
+					<img border="0" width="300px" src="https://base-prod.rspb-prod.magnolia-platform.com/dam/jcr:c17b3b47-db5b-43d8-894b-f26ade323aab/499876726-Species-Osprey-stood-on-stump-sunset.jpg" />
+				</a>
+			</xsl:when>
+			<xsl:otherwise>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+
+	<xsl:template match="Field">
+		<tr>
+			<xsl:if test="(position() +1) mod 2">
+				<xsl:attribute name="bgcolor">
+					<xsl:value-of select="$alternateRowColor"/>
+				</xsl:attribute>
+			</xsl:if>
+			<xsl:if test="FieldName">
+				<td>
+					<xsl:value-of select="FieldName"/>
+				</td>
+			</xsl:if>
+			<td>
+				<xsl:choose>
+					<xsl:when test="FieldValue[starts-with(., 'www.')]">
+						<a target="_blank">
+							<xsl:attribute name="href">https://<xsl:value-of select="FieldValue"/>
+							</xsl:attribute>
+							<xsl:value-of select="FieldValue"/>
+						</a>
+					</xsl:when>
+					<xsl:when test="FieldValue[starts-with(., 'http:')]">
+						<a target="_blank">
+							<xsl:attribute name="href">
+								<xsl:value-of select="FieldValue"/>
+							</xsl:attribute>
+							<xsl:value-of select="FieldValue"/>
+						</a>
+					</xsl:when>
+					<xsl:when test="FieldValue[starts-with(., 'https:')]">
+						<a target="_blank">
+							<xsl:attribute name="href">
+								<xsl:value-of select="FieldValue"/>
+							</xsl:attribute>
+							<xsl:value-of select="FieldValue"/>
+						</a>
+					</xsl:when>
+					<xsl:when test="FieldValue[starts-with(., '\\')]">
+						<a target="_blank">
+							<xsl:attribute name="href">
+								<xsl:value-of select="FieldValue"/>
+							</xsl:attribute>
+							
+						</a>
+					</xsl:when>
+					<xsl:when test="FieldValue[starts-with(., '&lt;img ')]">
+						<xsl:value-of select="FieldValue" disable-output-escaping="yes" />
+					</xsl:when>
+					<xsl:when test="FieldName[starts-with(.,'Dataset ID')] or FieldName[starts-with(.,'Data Provider ID')]">
+						<a target="_blank">	
+							<xsl:attribute name="href">
+								https://registry.nbnatlas.org/public/show/<xsl:value-of select="FieldValue"/>
+							</xsl:attribute>
+							<xsl:value-of select="FieldValue"/>
+						</a>
+					</xsl:when>
+					<xsl:otherwise>
+						
+						<xsl:value-of select="FieldValue"/>
+						
+					</xsl:otherwise>
+				</xsl:choose>
+			</td>
+		</tr>
+	</xsl:template>
+</xsl:stylesheet>
