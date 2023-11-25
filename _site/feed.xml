@@ -1,1 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-24T19:38:52+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Birdy Blog</title></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-25T17:36:22+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Birdy Blog</title><subtitle>Some bird talking about tech.</subtitle><author><name>Bella</name></author><entry><title type="html">ArcGIS Adventures</title><link href="http://localhost:4000/posts/arcgis-adventures/" rel="alternate" type="text/html" title="ArcGIS Adventures" /><published>2023-11-25T00:00:00+00:00</published><updated>2023-11-25T00:00:00+00:00</updated><id>http://localhost:4000/posts/arcgis-adventures</id><content type="html" xml:base="http://localhost:4000/posts/arcgis-adventures/">&lt;p&gt;After reading this article: https://www.audubon.org/feature/aerial-odysseys-bird-migration-americas and seeing opportunities to contribute towards conservation I have decided to learn ArcGIS&lt;/p&gt;
+
+&lt;p&gt;and what better to do that than to map my five favourite local birds!&lt;/p&gt;
+
+&lt;p&gt;So looking for data online I came across nbnatlas.org which is a wonderful resource!&lt;/p&gt;
+
+&lt;p&gt;now the hardest part of it all is to select my top 5 birds to show (in no particular order):&lt;/p&gt;
+
+&lt;p&gt;Osprey
+Peregrine Falcon
+Puffin
+Pied Wagtail
+Raven&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/1-downloading-data.PNG&quot; alt=&quot;screenshot of nbnatlas.org website&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;this gave us a nice csv file of all the occurrences in 2022.&lt;/p&gt;
+
+&lt;p&gt;Using ArcMap 10.7.1&lt;/p&gt;
+
+&lt;p&gt;Now I created a map and chose the satellite imagery without road markings, as birds do not follow them neither shall we&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/2-add-basemap.PNG&quot; alt=&quot;adding the basemap&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;this was then cropped to show only the relevant land masses&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/3-cropping-map.PNG&quot; alt=&quot;cropping the map&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;the data taken from nbnatlas was then imported into ArcMap, for the x and y coordinates to be plotted correctly their coordinate system was set to &lt;a href=&quot;https://en.wikipedia.org/wiki/World_Geodetic_System&quot;&gt;WGS1984&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;to provide clear analysis the symbol colour of each record is determined by the Species ID (designated by nbnatlas) and then Common Name later.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/4-different-symbols.PNG&quot; alt=&quot;Differentiating symbols&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ArcMap contains an amazing feature called HTMLPopup which displays the data point in a table for the user to read. After selecting the relevent fields this is how it looked:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/5-selected-fields.PNG&quot; alt=&quot;Selecting relevent data fields&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For the map user to have access to the data provider and dataset from nbnatlas the HTMLPopup can be edited using xslt to provide links to them (REWORD)&lt;/p&gt;
+
+&lt;p&gt;following is a code snippet which was inserted toward the end of the default xsl file (line 145)&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;xsl:when&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;test=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;FieldName[starts-with(.,&apos;Dataset ID&apos;)] or FieldName[starts-with(.,&apos;Data Provider ID&apos;)]&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; 
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsl:attribute&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;href&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            https://registry.nbnatlas.org/public/show/&lt;span class=&quot;nt&quot;&gt;&amp;lt;xsl:value-of&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;select=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;FieldValue&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsl:attribute&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsl:value-of&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;select=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;FieldValue&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsl:when&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Say the dataset ID is: ‘dr478’ the code above converts this to a &lt;a href=&quot;https://registry.nbnatlas.org/public/show/dr478&quot;&gt;link&lt;/a&gt; for the RSPB Annual Reserve Avian Monitoring on the nbnatlas website. This also functions the same for data providers, such as the RSPB.&lt;/p&gt;
+
+&lt;p&gt;Here we can see this visualised in a HTMLPopup&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/6-link-to-source.PNG&quot; alt=&quot;HTMLPopup example with link to source&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To enhance the data displayed the xsl code was further modified to retrieve beautiful images of birds kindly provided by the &lt;a href=&quot;https://rspb.org.uk&quot;&gt;RSPB&lt;/a&gt;. Originally I had planned to attach the image files to the document, but thought that having an agile approach was more fitting to the modern web. The xls file has been included in this repo on GitHub.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/7-embedded-image.PNG&quot; alt=&quot;HTMLPopup with embedded image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Each data point contains a field named “Coordinate Uncertainty” which is measured in meters. The radius of the symbol for each data point can be made to scale proportionally to this value. Additionally this can be done with an accurate scale, to give proper perspective to where the bird was spotted.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/arcgis-adventures/8-proportional-size.PNG&quot; alt=&quot;Proportionally sizing the symbols&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is so much to explore in ArcGIS, I’ve barely scratched the surface of what is possible and I am excited to keep on learning what that software can achieve.&lt;/p&gt;
+
+&lt;p&gt;The next set of data with time stamps I would like to map summer/autumn migrations over many years.&lt;/p&gt;
+
+&lt;p&gt;I expected that python scripting would be necessary to complete most of what I was looking to do, this was not true as the xls engine is very powerful.&lt;/p&gt;</content><author><name>Bella</name></author><summary type="html">After reading this article: https://www.audubon.org/feature/aerial-odysseys-bird-migration-americas and seeing opportunities to contribute towards conservation I have decided to learn ArcGIS</summary></entry></feed>

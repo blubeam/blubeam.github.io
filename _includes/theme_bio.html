@@ -1,0 +1,19 @@
+
+  <link rel="stylesheet" href="/assets/css/main.css" />
+<main class="blogfeed">
+<section id="bio">
+  <div id="bio-avatar-wrapper">
+    <img src="{{site.data.theme_author.dp}}" alt="Avatar missing" id="bio-avatar" />
+  </div>
+
+  <div id="bio-text">{{site.data.theme_author.description}}</div>
+</section>
+
+<section id="social-links">
+{% for i in site.data.theme_author.contact %}
+  <a href="{{i.url}}" target="_blank">
+    <img src="{{site.baseurl}}/assets/icons/{{i.title}}.svg" alt="" />
+  </a>
+{%endfor%}
+</section>
+</main>

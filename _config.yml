@@ -1,16 +1,19 @@
-title: Birdy Blog 
-markdown: kramdown
+title: Birdy Blog
+email: greenbeam@tutanota.com
+description: Some bird talking about tech.
+baseurl: "" 
 url: ""
-baseurl: ""
+
 
 # for atom feed
-# author:
+author:
+  name: Bella
 
+
+# Build settings
+remote_theme: sharadcodes/jekyll-theme-material-you
 plugins:
-#  - jemoji
-#  - jekyll-seo-tag
-#  - jekyll-sitemap
-#  - jekyll-feed
+  - jekyll-feed
 
 collections_dir: all_collections
 collections:
