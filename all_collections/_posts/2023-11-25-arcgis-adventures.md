@@ -19,9 +19,11 @@ now the hardest part of it all is to select my top 5 birds to show (in no partic
 * Pied Wagtail
 * Raven
 
+These were selected from records.nbnatlas.org
+
 ![screenshot of nbnatlas.org website](/assets/images/arcgis-adventures/1-downloading-data.PNG)
 
-this gave us a nice csv file of all the occurrences in 2022.
+once downloaded and uncompressed we have a nice csv file of all the occurrences in 2022.
 
 Using ArcMap 10.7.1
 
