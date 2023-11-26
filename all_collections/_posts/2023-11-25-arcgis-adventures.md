@@ -60,7 +60,7 @@ following is a code snippet which was inserted toward the end of the default xsl
 </xsl:when>
 ```
 
-Say the dataset ID is: 'dr478' the code above converts this to a [link](https://registry.nbnatlas.org/public/show/dr478) for the RSPB Annual Reserve Avian Monitoring on the nbnatlas website. This also functions the same for data providers, such as the (RSPB)[https://registry.nbnatlas.org/public/show/dp0]
+Say the dataset ID is: 'dr478' the code above converts this to a [link](https://registry.nbnatlas.org/public/show/dr478) for the RSPB Annual Reserve Avian Monitoring on the nbnatlas website. This also functions the same for data providers, such as the [RSPB](https://registry.nbnatlas.org/public/show/dp0)
 
 Here we can see this visualised in a HTMLPopup:
 
