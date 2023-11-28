@@ -5,9 +5,9 @@ date: 2023-11-25
 thumbnail: "assets/images/arcgis-adventures/thumb.jpg"
 ---
 
-After reading this [article](https://www.audubon.org/feature/aerial-odysseys-bird-migration-americas) which displays beautiful interactive maps detailing american migratory paths and current tracking technologies. Additionally seeing opportunities to contribute towards conservation I have decided to learn ArcGIS
+After reading this [article](https://www.audubon.org/feature/aerial-odysseys-bird-migration-americas) which displays beautiful interactive maps detailing american migratory paths and current tracking technologies and  seeing opportunities to contribute towards conservation I have decided to learn ArcGIS.
 
-and what better to do that than to map my five favourite local birds!
+What better to do that than to map my five favourite local birds, using ArcMap 10.7.1.
 
 So looking for data process online I came across nbnatlas.org which is a wonderful resource, containing the UK's largest collection of biodiversity information. 
 
@@ -25,19 +25,17 @@ These were selected from records.nbnatlas.org
 
 once downloaded and uncompressed we have a nice csv file of all the occurrences in the UK during 2022.
 
-in the following I am using ArcMap version 10.7.1
-
 Now I created a map and chose the satellite imagery without road markings, as birds do not follow them neither shall we.
 
 ![adding the basemap](/assets/images/arcgis-adventures/2-add-basemap.PNG)
 
-This was then cropped to show only the relevant land masses
+This was then cropped to show only the relevant land masses.
 
 ![cropping the map](/assets/images/arcgis-adventures/3-cropping-map.PNG)
 
 The data taken from nbnatlas was then imported into ArcMap, for the x and y coordinates to be plotted correctly their coordinate system was set to [WGS1984](https://en.wikipedia.org/wiki/World_Geodetic_System) 
 
-to provide clear analysis the symbol colour of each record is determined by the Species ID (designated by nbnatlas), then Common Name later as this will also be unique and makes for a easily readable legend.
+To provide clear analysis the symbol colour of each record is determined by the Species ID (designated by nbnatlas), then Common Name later as this will also be unique and makes for a easily readable legend.
 
 ![Differentiating symbols](/assets/images/arcgis-adventures/4-different-symbols.PNG)
 
@@ -47,7 +45,7 @@ ArcMap contains an amazing feature called HTMLPopup which displays the data poin
 
 For the map user to have quick access to the data provider and dataset from nbnatlas, the HTMLPopup can be edited via xsl to provide a link to the relevent data.
 
-following is a code snippet which was inserted toward the end of the default xsl file (line 145)
+Following is a code snippet which was inserted toward the end of the default xsl file (line 145)
 
 ```xml
 <xsl:when test="FieldName[starts-with(.,'Dataset ID')] or FieldName[starts-with(.,'Data Provider ID')]">
